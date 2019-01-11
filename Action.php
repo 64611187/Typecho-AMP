@@ -171,7 +171,7 @@ class AMP_Action extends Typecho_Widget implements Widget_Interface_Do
 
         $this->article = $this->getArticle($this->request->target);
         if (isset($this->article['isblank'])) {
-            throw new Typecho_Widget_Exception('不存在或已删除');
+            throw new Typecho_Widget_Exception("不存在或已删除。<a href='{$this->baseurl}'>返回首页</a>");
         }
         if (Helper::options()->plugin('AMP')->OnlyForSpiders == 1){//判断是否是对应的爬虫来访
             $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
